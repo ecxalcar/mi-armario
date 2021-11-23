@@ -1,0 +1,43 @@
+<div class="container">
+    <h3>{{ section.settings.heading }}</h3>
+
+    {% for block in section.blocks %}
+        {% if block.type == 'description' %}
+            <div class="alert alert-warning">
+                <p>{{ block.settings.description }}</p>
+            </div>
+            {% endif %}
+    {% else %}
+            <div class="alert alert-warning">
+                <p>Este es mi texto en el alert</p>
+            </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+    "name": "Alert",
+    "tag": "section",
+    "class": "alert",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Description",
+            "type": "description",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "label": "Description",
+                    "id": "description"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
