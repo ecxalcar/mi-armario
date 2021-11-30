@@ -3,12 +3,13 @@
     <div class="row">
         {% for product in collections[section.settings.products_collection].products %}
             <div class="col-md-4">
-                {{ product.featured_media | img_url: 'master' | img_tag }}
-                {{ 'product-1' | placeholder_svg_tag }}
-                <!-- <p>{{ product.title }}</p> -->
-                <button class="btn btn-success">Ver producto</button>
+                <div class="card">
+                    {{ product.featured_media | img_url: 'master' | img_tag: '','w-100' }}
+                    <!-- {{ 'product-1' | placeholder_svg_tag }} -->
+                    <!-- <p>{{ product.title }}</p> -->
+                    <button class="btn btn-success">Ver producto</button>
+                </div>
             </div>
-
         {%endfor%}
         <!-- <div class="col-md-4">
             {{ 'product-1' | placeholder_svg_tag }}
@@ -43,7 +44,7 @@
         {
             "type": "collection",
             "label": "Choose a collection",
-            "id": "products_collection"
+            "id": "products_collection_masonry"
         }
     ]
 }

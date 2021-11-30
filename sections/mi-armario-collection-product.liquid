@@ -1,0 +1,117 @@
+<div class="container">
+    <h3>{{ section.settings.heading_masonry }}</h3>
+    <div class="row" data-masonry="{&quot;percentPosition&quot;: true }">
+        {% for product in collections[section.settings.products_collection_masonry].products %}
+            <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
+                <div class="card">
+                    {{ product.featured_media | img_url: 'master' | img_tag: '','w-100' }}
+                    <!-- <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""> -->
+                    <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                        <cite title="Source Title">{{ product.price | money_with_currency }}</cite>
+                    </div><!--card-body-->
+                </div><!--card-->
+            </div><!--col-->
+        {% endfor %}
+        
+        <!-- <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card p-3">
+            <figure class="p-3 mb-0">
+              <blockquote class="blockquote">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0 text-muted">
+                <cite title="Source Title">$20</cite>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1467043237213-65f2da53396f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="">
+            <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+                <cite title="Source Title">$20000</cite>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card bg-warning p-3">
+            <figure class="mb-0">
+              <blockquote class="blockquote">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0">
+                <cite title="Source Title">$2900</cite>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <cite title="Source Title">$200</cite>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4" >
+          <div class="card p-3 text-end">
+            <figure class="mb-0">
+              <blockquote class="blockquote">
+                  <h5 class="card-title">Card title</h5>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0 text-muted">
+                <cite title="Source Title">$200</cite>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-4 mb-4">
+          <div class="card bg-secondary">
+            <div class="card-body">
+              <h5 class="card-title text-white">Card title</h5>
+              <p class="card-text text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <cite title="Source Title" class="text-white">$200</cite>
+            </div>
+          </div>
+        </div> -->
+      </div>
+</div><!--/.container-->
+
+
+{% schema %}
+{
+    "name": "Masonry Products",
+    "tag": "section",
+    "class": "masonry",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading_masonry",
+            "label": "Heading",
+            "default": "Hello Masonry"
+        },
+        {
+            "type": "collection",
+            "label": "Choose a collection",
+            "id": "products_collection_masonry"
+        }
+    ]
+}
+{% endschema %}

@@ -1,5 +1,11 @@
 {
   "sections": {
+    "miarmario_collection": {
+      "type": "mi-armario-collection-product",
+      "settings": {
+        "products_collection_masonry": "all"
+      }
+    },
     "miarmario_barra": {
       "type": "miarmario-barra",
       "settings": {
@@ -12,9 +18,11 @@
         "products_collection": "all"
       }
     }
+    
   },
   "order": [
     "miarmario_barra",
-    "miarmario_grid"
+    "miarmario_grid",
+    "miarmario_collection"
   ]
 }
